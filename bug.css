@@ -1,0 +1,11 @@
+The CSS property `content` is used with the `::before` and `::after` pseudo-elements to insert generated content.  However, if the `content` property is set to a value that contains a URL, and that URL is incorrect or inaccessible, it can lead to unexpected behavior.  The browser might not display any content, or it might display a broken image icon.  Debugging this can be tricky as the browser's console might not provide detailed error messages.
+
+For Example:
+
+```css
+.element::before {
+  content: url('invalid-image.jpg');
+}
+```
+
+In this case, if `invalid-image.jpg` doesn't exist or is inaccessible, the `::before` pseudo-element won't display anything as expected, or may throw a silent error.
